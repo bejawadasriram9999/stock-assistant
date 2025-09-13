@@ -10,7 +10,7 @@ import asyncio # For running async functions
 load_dotenv()
 
 # Define the agent's properties (simulated)
-AGENT_NAME = "Stock_Market_Assistant"
+AGENT_NAME = "Stock_Market_Assistant_2.0"
 AGENT_MODEL = "gemini-2.0-flash" # Using gemini-2.0-flash directly for simulation
 AGENT_DESCRIPTION = "A helpful stock market assistant that can fetch real-time stock prices."
 AGENT_INSTRUCTION = """You are a helpful stock market assistant.
