@@ -1,34 +1,47 @@
-\# 📈 Stock Market Assistant
+# Google ADK MongoDB MCP Server
 
+This project provides a MongoDB assistant using Google's ADK (AI Development Kit) with the MongoDB MCP (Model Context Protocol) server.
 
+## Setup
 
-A simple Streamlit-based chatbot that fetches real-time stock prices using \*\*yfinance\*\* and answers queries with \*\*Google Gemini API\*\*.
+1. **Install dependencies:**
+   ```bash   
+   uv sync
+   ```
 
+2. **Configure MongoDB Connection:**
 
+   Create a `.env` file in the project root with your MongoDB connection string:
 
----
+   ```env
+   GOOGLE_GENAI_USE_VERTEXAI=FALSE
+   GOOGLE_API_KEY=
+   ```
 
+   ```env
+   # Get this from your MongoDB Atlas cluster connection string
+   # Go to: https://cloud.mongodb.com → Clusters → Connect → Connect your application
+   MDB_MCP_CONNECTION_STRING=mongodb+srv://username:password@cluster.mongodb.net/database
+   ```
 
+   **Alternative: Using API Keys (if preferred):**
 
-\## 🚀 Features
+   ```env
+   # Get these from https://cloud.mongodb.com/v2#/account/apiKeys
+   MDB_MCP_API_CLIENT_ID=your_api_client_id
+   MDB_MCP_API_CLIENT_SECRET=your_api_client_secret
+   ```
 
-\- Interactive \*\*chat interface\*\* built with Streamlit.
+3. **Run the agent:**
+   ```bash
+   adk web
+   ```
 
-\- Real-time stock data via \[yfinance](https://pypi.org/project/yfinance/).
+## What was fixed
 
-\- Connects with \*\*Google Gemini API\*\* for natural language responses.
+The implementation was updated to use the **connection string approach** which is simpler and more reliable than API keys. The MongoDB MCP server supports two authentication methods:
 
-\- Environment variable handling with \*\*python-dotenv\*\*.
+1. **Connection String** (recommended): Direct MongoDB connection string
+2. **API Keys**: MongoDB Atlas API keys with `MDB_MCP_API_CLIENT_ID` and `MDB_MCP_API_CLIENT_SECRET`
 
-\- Deployed on \*\*Streamlit Cloud\*\*.
-
-
-
----
-
-
-
-\## 📂 Project Structure
-
-
-
+The connection string approach is preferred as it's more straightforward and doesn't require API key setup in Atlas.
